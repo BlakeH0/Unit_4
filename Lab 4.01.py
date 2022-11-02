@@ -42,16 +42,29 @@ Can you think of an alternate way to do complete this task without any loop or c
 
 
 
-vowels = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
+
+
+
+
+
+VOWELS = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
 new = ""
 
 def de_vowel(a_string):
-    global vowels
     global new
     for letter in a_string:
-        if letter not in vowels:
+        if letter not in VOWELS:
             new += letter
 
+def count_vowels(a_string):
+    counter = 0
+    for letter in a_string:
+        if letter in VOWELS:
+            counter += 1
+            
+    return counter
 
-no_vowels = de_vowel(input("What word or phrase would you like to devowel? "))
+the_sentence = input("What word or phrase would you like to devowel? ")
+no_vowels = de_vowel(the_sentence)
+print(f"There are {count_vowels(the_sentence)} vowels in your sentence")
 print(new)
