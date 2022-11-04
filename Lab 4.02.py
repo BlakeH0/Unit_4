@@ -35,6 +35,27 @@ Example 1
 
 #######################################################
 Here is what it should look like when you run your code:
+
+
+
+singular_words = ["apple", "berry", "banana", "cherry", "plum"]
+plural_words = []
+
+
+
+def pluralize_word(list):
+    for word in singular_words:
+        last_letter = word[len(word) - 1]
+        if last_letter == 'y':
+            word = word[:-1] 
+            plural_words.append(f"{word}ies")
+        else:
+            plural_words.append(f"{word}s")
+    print(list)
+    return plural_words
+
+print(pluralize_word(singular_words))
+
 #######################################################
 Singular words: ['apple', 'berry', 'melon']
 No longer singular words: ['apples', 'berries', 'melons']
@@ -64,13 +85,18 @@ Example 2
     # contract goes here
     def my_reverse(string_to_reverse):
         # your code goes here
-​
+
     reversed = my_reverse("apples")
     print(reversed)
     # examples go here
 
 ##############################################################
+
+
 Here is what example 2 should look like when you run your code:
+
+
+
 ##############################################################
     selppa
 
@@ -85,3 +111,32 @@ Extension
 Create a function reverse_strings_in_list. This function will input a list of strings you want to reverse. 
 The function will reverse the strings in the list by calling the my_reverse function in a loop.
 '''
+
+# BLAKE HARRINGTON 
+def my_reverse(word):
+    new_word = ""
+    for letters in word:
+        new_word = letters + new_word
+    return new_word
+    
+reversed_word = my_reverse("apples")
+print(reversed_word)
+reversed_word = my_reverse("")
+print(reversed_word)
+reversed_word = my_reverse("sharp")
+print(reversed_word)
+reversed_word = my_reverse("a")
+print(reversed_word)
+
+
+word_list = ["Cat", "Millions", "", "I", "Whispering"]
+
+def reverse_strings_in_list(list):
+    reversed_list = []
+    for words in word_list:
+        reversed_list.append(my_reverse(words))
+    return reversed_list
+
+new_list = reverse_strings_in_list(word_list)
+print(new_list)
+
