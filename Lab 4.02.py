@@ -36,7 +36,8 @@ Example 1
 #######################################################
 Here is what it should look like when you run your code:
 
-
+# BLAKE HARRINGTON
+# Pluralize Portion of Lab
 
 singular_words = ["apple", "berry", "banana", "cherry", "plum"]
 plural_words = []
@@ -113,6 +114,7 @@ The function will reverse the strings in the list by calling the my_reverse func
 '''
 
 # BLAKE HARRINGTON 
+# Reverse Portion of Lab
 def my_reverse(word):
     new_word = ""
     for letters in word:
