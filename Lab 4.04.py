@@ -60,6 +60,98 @@ Example
     Which shopping list would you like to see? 3
     planner, pencils, q-tips
 
+# Blake Harrington
+
+# Shopping Lists
+shopping_lists = [
+    ['toothpaste', 'q-tips', 'milk'],
+    ['milk', 'candy', 'apples'],
+    ['planner', 'pencils', 'q-tips']
+    ]
+
+# Invalid Input Message
+invalid = ("Please input a valid number!")
+
+# Update List Function
+def update_list():
+    global shopping_lists
+    list = int(input("Which list would you like to change? "))
+    if list > 0 and list < 4:
+        spot = int(input("What item would you like to change? "))
+        if spot > 0 and spot < 4:
+            new = input(f"What item would you like to update item #{spot} with? ")
+            shopping_lists[list - 1][spot - 1] = new
+            print()
+            print("Updated shopping list: ")
+            for lists in shopping_lists:
+                print(lists)
+        else:
+            print(invalid)
+    else:
+        print(invalid)
+    pass
+
+
+# View Item
+def print_item():
+    global shopping_lists
+    view = int(input("Which shopping list would you like to choose? "))
+    for i in range(1, len(shopping_lists) + 1):
+        if view == i:
+            item = int(input("What item would you like to see? "))
+            if item in range(0, len(shopping_lists)):
+                print(shopping_lists[view - 1][item - 1])
+            else:
+                print(invalid)
+                return invalid
+        else:
+            print(invalid)
+            return invalid 
+
+
+    pass
+
+
+# View List Function
+def print_list():
+    global shopping_lists
+    view_list = int(input("Which shopping list would you like to choose? "))
+    if view_list in range(1, 4):
+            print(shopping_lists[view_list - 1])
+    else:
+        print(invalid)
+        return invalid
+    pass
+
+
+
+
+running = True
+
+while running: 
+    print()
+    choice = input("What would you like to do? \n"
+    "1. Update Item \n"
+    "2. View Item \n"
+    "3. View List \n" )
+    if choice == "1":
+        print()
+        update_list()
+        pass
+    elif choice == "2":
+        print()
+        print_item()
+        pass
+    elif choice == "3":
+        print()
+        print_list()
+        pass
+    else:
+        print()
+        print("Please enter a corresponding number! ")
+
+
+
 Part 2
 ------------
 In this part of the lab you will go through your shopping list program and perform a few different calculations.
@@ -74,6 +166,60 @@ of the lists (unless it's already there).
 
 You can't have milk without cookies. Write a function if_you_give_a_moose_a_cookie, that will go through every 
 element of shopping_cart and update 'milk' to be 'milk and cookies'.
+
+# Blake Harrington
+
+
+# Shopping Lists
+shopping_lists = [
+    ['toothpaste', 'q-tips', 'milk'],
+    ['milk', 'candy', 'apples'],
+    ['planner', 'pencils', 'q-tips']
+    ]
+
+all_lists = []
+
+# All In One Function
+def all_in_one():
+    global all_lists
+    global shopping_lists
+    for l in shopping_lists:
+        for i in range(0, len(shopping_lists)):
+            all_lists.append(l[i])
+    print(all_lists)
+    pass
+
+# Count Q Tips Function
+def count_q_tips():
+    counter = 0
+    for i in all_lists:
+        if i == "q-tips":
+            counter += 1
+    print(counter)
+    pass
+
+# Drink More Milk Function
+def drink_more_milk():
+    for a in range(0, len(shopping_lists)):
+        for b in range(0, len(shopping_lists[a])):
+            if "milk" not in shopping_lists[a]:
+                shopping_lists[a][b] = "milk"    
+        print(shopping_lists[a]) 
+
+# If You Give A Mouse A Cookie Function
+def if_you_give_a_mouse_a_cookie():
+    for i in range(0, len(shopping_lists)):
+        for b in range(0, len(shopping_lists)):
+            if shopping_lists[i][b] == "milk":
+                shopping_lists[i][b] += " and cookies"
+        print(shopping_lists[i])
+    pass
+
+
+all_in_one()
+count_q_tips()
+drink_more_milk()
+if_you_give_a_mouse_a_cookie()
 
 Extension
 -------------
@@ -92,4 +238,28 @@ Last item can be gotten by my_list[-1]
 Second to last element: my_list[-2]
 
 Third to last element: my_list[-3]
+
+# Blake Harrington
+
+# Shopping Lists
+shopping_lists = [
+    ['toothpaste', 'q-tips', 'milk'],
+    ['milk', 'candy', 'apples'],
+    ['planner', 'pencils', 'q-tips']
+    ]
+
+# print(shopping_lists[-1][-1])
+
+# Reversed List Function
+def reversed_list():
+    shopping_lists.reverse()
+    for a in range(0, len(shopping_lists)):
+        shopping_lists[a].reverse()
+        print(shopping_lists[a])
+    
+
+reversed_list()
+
+
 '''
+
