@@ -41,6 +41,8 @@ Create a program that asks the user which function they would like to run.
 def print_numbers(list):
     for i in range(0, len(list)):
         print(list[i])
+    
+
 
 num_list = [1, 2, 3, 4, 5, 6]
 
@@ -49,20 +51,45 @@ def swapping_stars():
     for line in range(0, 6):
         for char in range(0,6):
             if line % 2 == char % 2:
-                line_str += "*"
+                if char == 5:
+                    line_str += "*\n"
+                else:
+                    line_str += "*"
             else:
-                line_str += "-"
+                if char == 5:
+                    line_str += "-\n"
+                else:
+                    line_str += "-"
+                
     print(line_str)
 
 
 choice = input("Which function would you like to run? \n"
 "1. Print Numbers \n"
-"2. Swapping Stars \n")
+"2. Swapping Stars \n"
+"3. Quit \n")
 
-if choice == "1":
-    print_numbers(num_list)
-elif choice == "2":
-    print()
-    swapping_stars()
-else:
-    print("Please enter a valid number choice! ")
+running = True
+while running:
+    if choice == "1":
+        print_numbers(num_list)
+        choice = input("Which function would you like to run? \n"
+        "1. Print Numbers \n"
+        "2. Swapping Stars \n"
+        "3. Quit \n")
+    elif choice == "2":
+        print()
+        swapping_stars()
+        choice = input("Which function would you like to run? \n"
+        "1. Print Numbers \n"
+        "2. Swapping Stars \n"
+        "3. Quit \n")
+    elif choice == "3":
+        running = False
+        break
+    else:
+        print("Please enter a valid number choice! ")
+        choice = input("Which function would you like to run? \n"
+        "1. Print Numbers \n"
+        "2. Swapping Stars \n"
+        "3. Quit \n")
